@@ -1,0 +1,44 @@
+Form Element 
+==============
+Action = where the info is going
+Method = GET or POST
+- GET is for insensative info
+- POST is for passing sensative info
+- specifies the type of HTTP request by which you as the developer want to have your form information being transferred. 
+
+Input Attribute
+=================
+Types: http://www.w3schools.com/tags/att_input_type.asp
+Once you have selected all of the input elements you want to include on your form; you must give each of them a name attribute if you want the inputs to be recognized by your server side code.  
+This name attribute is how the data gets referred to on the back end.
+
+once submitted: var_dump($_POST);
+
+$_GET and $_POST are called superglobals; 
+- they are only available for one URL request on the page once they are created.  
+
+==========================================
+SESSION
+==========================================
+
+$_SESSION is a superglobal that lets us save vales and have them be available from page to page until we decide to remove them
+$_SESSION values get stored on the server so we have to have a way of retreiving them each time a new request is made
+$_SESSION gives us a way of identifying each visitor that comes to our site by saving a cookie
+
+each pages that you would liek to add, remove or update a value to $_SESSION you have to put session_start() at the top
+
+process.php
+<?php
+session_start();
+$_SESSION['name'] = "Carlos";
+$_SESSION['occupation'] = "CEO";
+
+if(isset($_POST['music']))
+{
+	$_SESSION['music'] = $_POST['music'];
+}
+?>
+
+
+$_SESSION is a special type of array that will only allow you to add values with an association
+

@@ -1,0 +1,46 @@
+#container {
+	margin: 0px auto;
+	width: 960px;
+}
+
+h1, h3, h3 {
+	text-align: center;
+}
+
+h4 {
+	margin: 10px;
+}
+
+div {
+	width: 960px;
+	height: 600px;
+	border: 1px solid black;
+}
+
+h2 {
+	display: inline-block;
+	vertical-align: top;
+	margin: 20px;
+}
+
+form {
+	margin: 20px;
+}
+
+h2.high {
+	background-color: red;
+	width: 250px;
+	height: 250px;
+}
+
+h2.low {
+	background-color: red;
+	width: 250px;
+	height: 250px;
+}
+
+h2.correct {
+	background-color: green;
+	width: 250px;
+	height: 250px;
+}
