@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-var_dump($_SESSION['errors']);
-
 ?>
 
 <html>
@@ -32,23 +30,31 @@ var_dump($_SESSION['errors']);
 </head>
 <body>
 	<?php
-		if(isset($_SESSION['errors']))
-		{
-			foreach($_SESSION['errors'] as $error)
-			{
-				echo "<p> $error </p>";
-			}
-			unset($_SESSION['errors']);
-		}
+		// if(isset($_SESSION['errors']))
+		// {
+		// 	echo "<pre>";
+		// 	var_dump($_SESSION);
+		// 	echo "</pre>";
+		// 	echo $_SESSION['errors']['email'];
+		// 	unset($_SESSION['errors']);
+		// }
+
 	?>
 	<h1>Registration Form</h1>
 	<form id="registration" action='registration_process.php' method='post' enctype='multipart/form-data'>
 		<label for='email'>Email</label>
-		<input type='text' name='email'
-		<?php 
-		// if(array_key_exists('email', $_SESSION['errors'])) {"class='error'";} 
-		?> 
-		>
+		<input type='text' name='email'>
+<?php
+		if(!empty($_SESSION['errors']['email'])) 
+		{
+			echo $_SESSION['errors']['email'];
+			unset ($_SESSION['errors']['email']);
+		}
+		else
+		{
+			echo '<p>';
+		}
+?>
 		<label for='first_name'>First Name</label>
 		<input type='text' name='first_name'>
 		<label for='last_name'>Last Name</label>

@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-// var_dump($_FILES);
-var_dump($_SESSION['errors']);
+
+
 
 if( (isset($_POST['action'])) && $_POST['action'] == 'register')
 {
@@ -44,21 +44,25 @@ if( (isset($_POST['action'])) && $_POST['action'] == 'register')
 	}
 
 	//check to see if the date is valid NEED to explode
-	// if(!checkdate($_POST['birth_date']))
-	// {
-	// 	$errors[] = "Your birth date is not valid";
-	// }
+	if(!isset($_POST['birth_date']))
+	{
+		$errors['password'] = "You have not put a birth day";
+	}
+
+
 
 	if($_FILES['profile_picture']['error'] > 0)
 	{
 		$errors['profile_picture'] = "You have not uploaded a picture";
 	}
 
+
+
 	if(count($errors) > 0) 
 		{
-			$_SESSION['errors'] = $errors; 
-			// header('Location: registration.php');
-			// die();
+			$_SESSION['errors']= $errors; 
+			header('Location: registration.php');
+			die();
 		}
 	else
 		{
