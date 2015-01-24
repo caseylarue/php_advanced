@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+var_dump($_POST);
 
 
 
@@ -9,9 +10,13 @@ if( (isset($_POST['action'])) && $_POST['action'] == 'register')
 	$errors = array();
 
 	/// check to see if the forms are empty
-	if(empty($_POST['email']) || empty($_POST['first_name']) || empty($_POST['last_name']) || empty($_POST['password']) || empty($_POST['birth_date']) )
+	if(isset($_POST['email']))
 	{
-		$errors['email'] = "you left a field empty";
+		 $_SESSION['email'] = $_POST['email'];
+	}
+	else
+	{
+		$errors['email'] = "you left out your email address";
 	}
 
 	//check to see if email address is bad
@@ -67,8 +72,8 @@ if( (isset($_POST['action'])) && $_POST['action'] == 'register')
 	else
 		{
 			$_SESSION['success'] = "Congrats you are awesome!";
-			// header('Location: registration_success.php');
-			// die();
+			header('Location: registration_success.php');
+			die();
 		}
 
 }
