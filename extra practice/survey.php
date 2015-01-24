@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 ?>
 
 
@@ -47,7 +48,7 @@ session_start();
 			<label for="comment">Comment</label>
 			<textarea name="comment" id="comment"></textarea>
 			<input type="submit" value="Submit!">
-			<input type="hidden" name="action" value="register">
+			<input type="hidden" name="initiate" value="register">
 		</form>
 	</div>
 </body>

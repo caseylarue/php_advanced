@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 ?>
 
 <html>
@@ -20,7 +21,7 @@ session_start();
 		<p>Favorite Language: <?= $_SESSION['language'] ?></p>
 		<p>Comment: <?= $_SESSION['comment'] ?></p>
 	</div>
-	<form>
+	<form action="survey_process.php" method="post">
 		<input type="submit" value="back">
 		<input type="hidden" name="action" value="back">
 	</form>
