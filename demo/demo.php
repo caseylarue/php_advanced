@@ -33,7 +33,7 @@ session_start();
 		</div>
 		<div>
 			<label for="color">Choose File:</label>
-			<input type="file" name="file">
+			<input type="file" name="profile">
 		</div>
 		<div>
 			<input type="submit" value="Submit">
